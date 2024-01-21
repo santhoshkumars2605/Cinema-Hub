@@ -1,0 +1,81 @@
+<div class="box-office">
+  <h3>Total box office collection</h3>
+  <h4>{{totalboxoffice | currency:'INR' : 'symbol' : '1.0-0'  }}Cr</h4>
+</div>
+<ng-container *ngFor="let input of inputArray; index as i">
+  <mat-form-field class="select-field" appearance="outline">
+    <mat-label>{{input}}</mat-label>
+    <mat-select >
+      <ng-container *ngFor="let value of getDropdown(filterArray[i])">
+        <mat-option [value]="value" (click)="applyFilter(value,filterArray[i])">{{value}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+</ng-container>
+
+  
+<br><br>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Movie Title">
+        <th mat-header-cell *matHeaderCellDef> Movie Title </th>
+        <td mat-cell *matCellDef="let element"> {{element['Movie Title']}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Genre">
+        <th mat-header-cell *matHeaderCellDef> Genre </th>
+        <td mat-cell *matCellDef="let element"> {{element.Genre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Release Year">
+        <th mat-header-cell *matHeaderCellDef> Release Year </th>
+        <td mat-cell *matCellDef="let element"> {{element['Release Year']}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="Director">
+        <th mat-header-cell *matHeaderCellDef> Director </th>
+        <td mat-cell *matCellDef="let element"> {{element.Director}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Rating">
+        <th mat-header-cell *matHeaderCellDef> Rating </th>
+        <td mat-cell *matCellDef="let element"> {{element.Rating}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="State">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.State}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="District">
+        <th mat-header-cell *matHeaderCellDef> District</th>
+        <td mat-cell *matCellDef="let element"> {{element.District}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Taluk">
+        <th mat-header-cell *matHeaderCellDef> Taluk </th>
+        <td mat-cell *matCellDef="let element"> {{element.Taluk}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Box Office Collections (in Crores)">
+        <th mat-header-cell *matHeaderCellDef> Box Office Collections (in Crores) </th>
+        <td mat-cell *matCellDef="let element"> {{element['Box Office Collections (in Crores)']}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 20,30]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+    

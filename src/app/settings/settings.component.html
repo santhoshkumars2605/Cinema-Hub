@@ -1,0 +1,30 @@
+<div class="settings">
+    <div class="filter-btn">
+        <button mat-raised-button color="warn" (click)="addFilter()">Add-Filter
+            <mat-icon matSuffix>add</mat-icon>
+        </button>
+    </div>
+    <br><br>
+    <div class="filter-data">
+        <ng-container *ngFor="let input of displayArray ; index as i">
+            <div class="form-inside">
+                <mat-form-field appearance="outline">
+                    <input matInput [(ngModel)]="inputValues[i]" (keyup)="onInputChange()">
+                </mat-form-field>
+                <mat-form-field  class="mat-select" appearance="outline">
+                    <mat-label>{{input}}</mat-label>         
+                    <mat-select>
+                            <ng-container *ngFor="let options of filterArray">
+                                <mat-option [value]="options"  (click)="onOptionsChange(options,i)">{{options}}</mat-option>
+                            </ng-container>
+                    </mat-select>
+                </mat-form-field>
+                <button type="button" mat-mini-fab color="warn" (click)="deleteFilter(i)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                <br>
+            </div>
+        </ng-container>   
+    </div>
+
+</div>
