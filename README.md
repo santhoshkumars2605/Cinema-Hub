@@ -1,4 +1,4 @@
-# Movie
+Cinema Hub, my Angular project, serves as a comprehensive movie database featuring extensive details such as movie names, director and actor information, ratings, and box office statistics. The platform offers users a variety of functionalities, including the ability to filter movies based on criteria such as release year, actors, and directors. What sets it apart is the innovative feature allowing users to create custom filters, enhancing their experience by tailoring searches to their preferences. With its user-friendly interface and dynamic filtering options, Cinema Hub provides a seamless and personalized movie exploration experience for film enthusiasts.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
 
