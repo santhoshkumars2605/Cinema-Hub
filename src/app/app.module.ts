@@ -30,8 +30,8 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 const appRoute:Routes=[
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home',component:HomepageComponent},
+  {path:'',redirectTo:'/',pathMatch:'full'},
+  {path:'/',component:HomepageComponent},
   {path:'movies',component:MovieComponent},
   {path:'settings',component:SettingsComponent},
   {path:'**',component:ErrorComponent}
